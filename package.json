@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node assets/game.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,8 +16,5 @@
   "bugs": {
     "url": "https://github.com/RivkaElgozy/webProject/issues"
   },
-  "homepage": "https://github.com/RivkaElgozy/webProject#readme",
-  "dependencies": {
-    "start": "^5.1.0"
-  }
+  "homepage": "https://github.com/RivkaElgozy/webProject#readme"
 }
