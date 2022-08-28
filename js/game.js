@@ -21,6 +21,7 @@ let colors = ["red", "yellow", "violet", "green", "pink", "orange", "purple", "b
 let shuffledColors = shuffle(colors);
 let flippedTiles = [];
 let clickedTile = 0;
+let flag = 0;
 
 // create tiles
 for (let i = 0; i < 5; i++) {
@@ -31,12 +32,14 @@ for (let i = 0; i < 5; i++) {
 
 function draw() {
   for (let i = 0; i < tiles.length; i++) {
-    if (tiles[i].revealed === false) {
+    if (tiles[i].revealed === false && flag === 1) {
       tiles[i].drawDown(ctx);
     } else {
       tiles[i].drawUp(ctx);
     }
   }
+  flag = 1;
+  ;lkjh
 }
 
 function update() {
@@ -63,28 +66,10 @@ function update() {
 
 function gameLoop() {
   draw();
-  // show tiles
-  // for (let i = 0; i < tiles.length; i++){
-  //   tiles[i].drawUp(ctx);
-  // }
-  // sleep(3000)
-
-  // //hide tiles
-  // for (let i = 0; i < tiles.length; i++){
-  //   tiles[i].drawDown(ctx);
-  // }
   update();
+
   requestAnimationFrame(gameLoop);
 }
-
-function sleep(milliseconds) {
-  const date = Date.now();
-  let currentDate = null;
-  do {
-    currentDate = Date.now();
-  } while (currentDate - date < milliseconds);
-}
-
 
 document.addEventListener("click", function(e) {
   const rect = canvas.getBoundingClientRect();
@@ -99,29 +84,6 @@ document.addEventListener("click", function(e) {
   }
 });
 
-// draw();
-// console.log(tiles.length)
-//    for (let i = 0; i < tiles.length; i++){
-//     console.log("up");
-//      tiles[i].drawUp(ctx);
-//    }
-// console.log("hello")
-// sleep(4000)
-// for (let i = 0; i < tiles.length; i++){
-//   tiles[i].drawDown(ctx);
-// }
-// console.log("bye")
-draw()
-for (let i = 0; i < tiles.length; i++){
-  tiles[i].revealed = true;
-  flippedTiles.push(i);
-}
-update()
-sleep(3000)
-for (let i = 0; i < tiles.length; i++){
-  tiles[i].revealed = false;
-}
-flippedTiles=[]
-update()
-gameLoop();
-
+draw();
+window.setTimeout(gameLoop, 5000);
+// gameLoop();
