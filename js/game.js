@@ -39,7 +39,6 @@ function draw() {
     }
   }
   flag = 1;
-  ;lkjh
 }
 
 function update() {
