@@ -1,20 +1,11 @@
 {
-  "name": "webproject",
+  "name": "memory-game-master",
   "version": "1.0.0",
-  "description": "",
+  "description": "teste",
   "main": "index.js",
   "scripts": {
-    "start": "node assets/game.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RivkaElgozy/webProject.git"
-  },
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/RivkaElgozy/webProject/issues"
-  },
-  "homepage": "https://github.com/RivkaElgozy/webProject#readme"
+  "license": "ISC"
 }
