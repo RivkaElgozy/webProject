@@ -8,7 +8,7 @@ export default class Tile {
   }
 
   drawDown(ctx) {
-    ctx.fillStyle = "blue";
+    ctx.fillStyle = "rgb(22, 11, 107)";
     ctx.fillRect(this.x, this.y, this.size, this.size);
   }
 

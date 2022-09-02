@@ -8,6 +8,7 @@
 #main{
     width: 100%;
     min-height: 100vh;
+    padding-bottom: 10px;
 }
 
 .bg-video{
@@ -41,10 +42,12 @@
     justify-content: center;
     align-items: center;
 }
-.menu li{
+.menu li, 
+.main-play-btn{
     position: relative;
 }
-.menu li a {
+.menu li a,
+.main-play-btn {
     display: block;
     text-decoration: none;
     margin: 0px 20px;
@@ -52,7 +55,7 @@
     background: linear-gradient(97deg, rgb(50, 59, 150)0%, rgb(22, 11, 107)100%);
     width: 210px;
     /* padding: 7px 13px 7px 13; */
-    padding: 7px 0px 7px 15%;
+    padding: 12px 0px 7px 15%;
     height: 50px;
     justify-content: center;
     align-items: center;
@@ -69,7 +72,8 @@
     transform: translate3d(8px,-8px,0);
 }
 
-.menu li a:hover {
+.menu li a:hover,
+.main-play-btn:hover {
     background: linear-gradient(97deg, rgb(254, 171, 37) 0%, rgba(255, 156, 1, 1) 100%);
     box-shadow: #e38400 -0px 1px, #e38400 -0px 2px, 
     #e38400 -0px 3px, #e38400 -0px 4px ,
@@ -77,4 +81,16 @@
     #e38400 -0px 7px, #e38400 -0px 8px ,
     #e38400 -0px 9px, #e38400 -0px 10px ,
     #e38400 -0px 11px;
+}
+
+.main-play-btn{
+    padding: 12px 0px 7px 9.2%;
+    margin: 0px auto;
+    width: 320px;
+    height: 60px;
+    font-size: 2rem;
+}
+.main-play-btn::before{
+    left: 5px;
+    top: 0px;
 }

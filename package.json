@@ -9,6 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< Updated upstream
     "progressbar.js": "^1.1.0"
+=======
+    "http-server": "^14.1.1"
+>>>>>>> Stashed changes
   }
 }
