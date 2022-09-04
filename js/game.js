@@ -53,7 +53,7 @@ for (let i = 0; i < 4; i++) {
     if (Math.floor(Math.random() * 2) == 0) {
         yv = -yv;
     }
-    tiles.push(new Tile(i * 200,xv, j * 200,yv, shuffledColors.pop()));
+    tiles.push(new Tile(i * 300 +110,xv, j * 300,yv, shuffledColors.pop()));
   }
 }
 
