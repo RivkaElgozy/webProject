@@ -1,5 +1,7 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
+// ctx.canvas.width  = window.innerWidth;
+// ctx.canvas.height = window.innerHeight;
 
 import Tile from './Tile.js';
 
@@ -23,6 +25,10 @@ let shuffledColors = shuffle(colors);
 let flippedTiles = [];
 let clickedTile = 0;
 let flag = 0;
+const FPS = 30;
+var bs = 30;
+var xv, yv;
+
 
 const progressBar = document.getElementById("progress-bar");
 const progressNext = document.getElementById("progress-next");
@@ -33,11 +39,23 @@ let active = 1;
 // create tiles
 for (let i = 0; i < 4; i++) {
   for(let j = 0; j < 2; j++) {
-    tiles.push(new Tile(i * 200, j * 200, shuffledColors.pop()));
+    // random ball starting speed (between 25 and 100 pps)
+    xv = Math.floor(Math.random() * 76 + 25) / FPS;
+    yv = Math.floor(Math.random() * 76 + 25) / FPS;
+    
+    // random ball direction
+    if (Math.floor(Math.random() * 2) == 0) {
+        xv = -xv;
+    }
+    if (Math.floor(Math.random() * 2) == 0) {
+        yv = -yv;
+    }
+    tiles.push(new Tile(i * 200,xv, j * 200,yv, shuffledColors.pop()));
   }
 }
 
 function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   for (let i = 0; i < tiles.length; i++) {
     if (tiles[i].revealed === false && flag === 1) {
       tiles[i].drawDown(ctx);
@@ -49,7 +67,7 @@ function draw() {
 }
 
 function update() {
-  console.log(clickedTile);
+  // console.log(clickedTile);
   if (flippedTiles.length === 2) {
     let first = flippedTiles[0];
     let second = flippedTiles[1];
@@ -78,6 +96,24 @@ function update() {
 }
 
 function gameLoop() {
+  for (let i = 0; i < tiles.length; i++){
+    tiles[i].x += tiles[i].xv;
+    tiles[i].y += tiles[i].yv;
+    
+    // bounce the ball off each wall
+    if (tiles[i].x - bs / 2 < 0 && tiles[i].xv < 0) {
+      tiles[i].xv = -tiles[i].xv;
+    }
+    if (tiles[i].x  + 4*bs > canvas.width && tiles[i].xv > 0) {
+      tiles[i].xv = -tiles[i].xv;
+    }
+    if (tiles[i].y - bs / 2 < 0 && tiles[i].yv < 0) {
+      tiles[i].yv = -tiles[i].yv;
+    }
+    if (tiles[i].y + 4*bs > canvas.height && tiles[i].yv > 0) {
+      tiles[i].yv = -tiles[i].yv;
+    }
+  }
   draw();
   update();
 
@@ -113,6 +149,7 @@ const updateProgress = () => {
     end();
   }
 }
+
 draw();
 startClock();
 window.setTimeout(gameLoop, 5000);
@@ -207,16 +244,17 @@ var ele = document.getElementById('mins');
       ele.innerHTML = '00:00';
     }
     else{
-    if(sec < 10)
-      if(min < 10)
-        ele.innerHTML = '0'+min+':0'+sec;
+      if(sec < 10)
+        if(min < 10)
+          ele.innerHTML = '0'+min+':0'+sec;
         else
-        ele.innerHTML = min+':0'+sec;
-    else
-    if(min<10)
-      ele.innerHTML = '0'+min+':'+sec;
+          ele.innerHTML = min+':0'+sec;
       else
-      ele.innerHTML = min+':0'+sec;
+        if(min<10)
+          ele.innerHTML = '0'+min+':'+sec;
+        else
+          ele.innerHTML = '10:00';
+          //go to game over
       if(sec === 60) {
         sec = 0;
         min++;

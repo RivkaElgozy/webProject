@@ -1,9 +1,11 @@
 export default class Tile {
-  constructor(x, y, color) {
+  constructor(x,xv, y,yv, color) {
     this.x = x;
+    this.xv=xv;
     this.y = y;
+    this.yv=yv;
     this.color = color;
-    this.size = 140;
+    this.size = 90;
     this.revealed = false;
   }
 
