@@ -113,8 +113,8 @@ const updateProgress = () => {
     end();
   }
 }
-
 draw();
+startClock();
 window.setTimeout(gameLoop, 5000);
 
 function end(){
@@ -189,4 +189,40 @@ function end(){
     });
     window.requestAnimationFrame(explode);
   }
+}
+function startClock() {
+  var timer;
+var ele = document.getElementById('mins');
+
+(function (){
+  var sec = 0;
+  var min = 0;
+  let flag = 0;
+  timer = setInterval(()=>{
+    if(flag === 0){
+      if(sec === 4){
+        flag = 1;
+        sec = 0;
+      }
+      ele.innerHTML = '00:00';
+    }
+    else{
+    if(sec < 10)
+      if(min < 10)
+        ele.innerHTML = '0'+min+':0'+sec;
+        else
+        ele.innerHTML = min+':0'+sec;
+    else
+    if(min<10)
+      ele.innerHTML = '0'+min+':'+sec;
+      else
+      ele.innerHTML = min+':0'+sec;
+      if(sec === 60) {
+        sec = 0;
+        min++;
+      }
+    }
+    sec ++;
+  }, 1000) // each 1 second
+})() 
 }
