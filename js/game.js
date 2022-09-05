@@ -34,6 +34,7 @@ const progressBar = document.getElementById("progress-bar");
 const steps = document.querySelectorAll(".step");
 let active = 1;
 
+
 // create tiles
 for (let i = 0; i < 4; i++) {
   for(let j = 0; j < 2; j++) {
@@ -178,6 +179,7 @@ window.setTimeout(gameLoop, 5000);
 
 function end(){
   flagEND = 1;
+
   // const max_fireworks = 5;
   // max_sparks = 50;
   // let canvas = document.getElementById('canvas');
