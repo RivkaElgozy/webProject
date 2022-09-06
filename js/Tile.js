@@ -7,14 +7,22 @@ export default class Tile {
     this.color = color;
     this.size = 90;
     this.revealed = false;
+    this.borderWidth = 5;   
+    this.offset = this.borderWidth * 2;
   }
 
   drawDown(ctx) {
+    ctx.beginPath();
+    ctx.fillStyle = 'black';
+    ctx.fillRect(this.x - this.borderWidth, this.y - this.borderWidth, this.size + this.offset, this.size + this.offset);
     ctx.fillStyle = "rgb(22, 11, 107)";
-    ctx.fillRect(this.x, this.y, this.size, this.size);
+    ctx.fillRect( this.x, this.y, this.size, this.size);
   }
 
   drawUp(ctx) {
+    ctx.beginPath();
+    ctx.fillStyle = 'black';
+    ctx.fillRect(this.x - this.borderWidth, this.y - this.borderWidth, this.size + this.offset, this.size + this.offset);
     ctx.fillStyle = this.color;
     ctx.fillRect(this.x, this.y, this.size, this.size);
   }    

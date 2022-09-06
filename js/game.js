@@ -52,7 +52,7 @@ for (let i = 0; i < 4; i++) {
     if (Math.floor(Math.random() * 2) == 0) {
         yv = -yv;
     }
-    tiles.push(new Tile(i * 300 +110,xv, j * 300,yv, shuffledColors.pop()));
+    tiles.push(new Tile(i * 300 +110,xv, j * 300 + 40,yv, shuffledColors.pop()));
   }
 }
 
@@ -116,34 +116,28 @@ function gameLoop() {
       tiles[i].yv = -tiles[i].yv;
     }
     // 
-    for (let j = 0; j < tiles.length; j++){
-      // if((tiles[i].x + tiles[i].size >= tiles[j].x && tiles[i].x < tiles[j].x + tiles[j].size) && (tiles[i].y + tiles[i].size >= tiles[j].y && tiles[i].y < tiles[j].y + tiles[j].size)){
-      //   tiles[i].xv = -tiles[i].xv;
-      //   tiles[j].xv = -tiles[j].xv;
-      //   tiles[i].yv = -tiles[i].yv;
-      //   tiles[j].yv = -tiles[j].yv;
-      // }
-      if(!(tiles[i].x + tiles[i].size < tiles[j].x || tiles[i].x > tiles[j].x + tiles[j].size || tiles[i].y + tiles[i].size < tiles[j].y || tiles[i].y > tiles[j].y + tiles[j].size)){
-        if(!(tiles[i].x + tiles[i].size < tiles[j].x)){
-          tiles[j].xv = -tiles[j].xv;
-          tiles[j].x += tiles[j].xv;
-        }
-        if(!(tiles[i].x > tiles[j].x + tiles[j].size)){
-          tiles[i].xv = -tiles[i].xv;
-          tiles[i].x += tiles[i].xv;
-        }
-        if(!(tiles[i].y + tiles[i].size < tiles[j].y)){
-          tiles[j].yv = -tiles[j].yv;
-          tiles[j].y += tiles[j].yv;
-        }
-        if(!(tiles[i].y > tiles[j].y + tiles[j].size)){
-          tiles[i].yv = -tiles[i].yv;
-          tiles[i].y += tiles[i].yv;
-        }
-      }       
-    }
-    tiles[i].x += tiles[i].xv;
-    tiles[i].y += tiles[i].yv;
+    // for (let j = 0; j < tiles.length; j++){
+    //   if(!(tiles[i].x + tiles[i].size < tiles[j].x || tiles[i].x > tiles[j].x + tiles[j].size || tiles[i].y + tiles[i].size < tiles[j].y || tiles[i].y > tiles[j].y + tiles[j].size)){
+    //     if(!(tiles[i].x + tiles[i].size < tiles[j].x)){
+    //       tiles[j].xv = -tiles[j].xv;
+    //       tiles[j].x += tiles[j].xv;
+    //     }
+    //     if(!(tiles[i].x > tiles[j].x + tiles[j].size)){
+    //       tiles[i].xv = -tiles[i].xv;
+    //       tiles[i].x += tiles[i].xv;
+    //     }
+    //     if(!(tiles[i].y + tiles[i].size < tiles[j].y)){
+    //       tiles[j].yv = -tiles[j].yv;
+    //       tiles[j].y += tiles[j].yv;
+    //     }
+    //     if(!(tiles[i].y > tiles[j].y + tiles[j].size)){
+    //       tiles[i].yv = -tiles[i].yv;
+    //       tiles[i].y += tiles[i].yv;
+    //     }
+    //   }       
+    // }
+    // tiles[i].x += tiles[i].xv;
+    // tiles[i].y += tiles[i].yv;//
   }
   draw();
   update();
