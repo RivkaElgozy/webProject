@@ -65,7 +65,7 @@ for (let i = 0; i < 4; i++) {
     if (Math.floor(Math.random() * 2) == 0) {
         yv = -yv;
     }
-    tiles.push(new Tile(i * 300 +110,xv, j * 300 + 40,yv, shuffledColors.pop()));
+    tiles.push(new Tile(i * 300 +130,xv, j * 300 + 40,yv, shuffledColors.pop()));
   }
 }
 
@@ -119,13 +119,13 @@ function gameLoop() {
     if (tiles[i].x - bs / 2 < 0 && tiles[i].xv < 0) {
       tiles[i].xv = -tiles[i].xv;
     }
-    if (tiles[i].x  + 4*bs > canvas.width && tiles[i].xv > 0) {
+    if (tiles[i].x  + 3.2*bs > canvas.width && tiles[i].xv > 0) {
       tiles[i].xv = -tiles[i].xv;
     }
     if (tiles[i].y - bs / 2 < 0 && tiles[i].yv < 0) {
       tiles[i].yv = -tiles[i].yv;
     }
-    if (tiles[i].y + 4*bs > canvas.height && tiles[i].yv > 0) {
+    if (tiles[i].y + 3.2*bs > canvas.height && tiles[i].yv > 0) {
       tiles[i].yv = -tiles[i].yv;
     }
     // 
