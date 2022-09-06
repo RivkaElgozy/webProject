@@ -57,7 +57,7 @@
     background: linear-gradient(97deg, rgb(50, 59, 150)0%, rgb(22, 11, 107)100%);
     width: 210px;
     /* padding: 7px 13px 7px 13; */
-    padding: 12px 0px 7px 10%;
+    padding: 12px 0px 7px 3%;
     height: 50px;
     justify-content: center;
     align-items: center;
@@ -87,7 +87,7 @@
 }
 
 .main-play-btn{
-    padding: 12px 0px 7px 120px;
+    padding: 12px 0px 7px 80px;
     /* margin: 0px auto;
     width: 320px;
     height: 60px;
@@ -115,9 +115,6 @@
     --error-hsl: 0, 60%, 50%;
   }
   
-  body {
-    margin: 0;
-  }
   
   .full-screen-container {
     background-image: url("background-image.jpg");
@@ -134,14 +131,15 @@
      /* --color: hsl(var(--primary-dark-hsl), .7);
     background-color: var(--color); */
     /* box-shadow: 0 0 15px 0 var(--color); */
-    padding: 40px 500px;
-      width: 100%;
-      /* max-width: 1200px; */
-      align-items: center;
-      justify-content: center;
+    padding: 40px 40%;
+    width: 100%;
+    /* max-width: 1200px; */
+    align-items: center;
+    justify-content: center;
   }
   
   .login-title {
+    width: 100%;
     margin: 0;
     color: white;
     text-align: center;
@@ -150,13 +148,14 @@
   }
   
   .form {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin-top: 0px;
   }
   
   .input-group {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 7px;
@@ -181,10 +180,6 @@
     width: 100%;
   }
   
-  /* .input-group.success input {
-    box-shadow: 0 0 0 1px hsl(var(--success-hsl));
-  } */
-  
   .input-group.error input {
     box-shadow: 0 0 0 1px hsl(var(--error-hsl));
   }
@@ -193,44 +188,9 @@
     box-shadow: 0 0 0 1px hsl(var(--primary-hsl));
   }
   
-  .input-group .msg {
-    display: none;
-    font-size: .75rem;
-  }
-  
-  .input-group.success .msg,
-  .input-group.error .msg {
-    display: block;
-  }
-  
-  .input-group.error .msg {
-    color: hsl(var(--error-hsl));
-  }
-  
-  .input-group.success .msg {
-    color: hsl(var(--success-hsl));
-  }
-  
-  .login-button {
-    padding: .5em 1em;
-    font-size: 1.5rem;
-    font-weight: lighter;
-    color: white;
-    background-color: hsl(var(--primary-hsl), .25);
-    border: 1px solid hsl(var(--primary-hsl));
-    border-radius: .25em;
-    outline: none;
-    cursor: pointer;
-  }
-  
-  .login-button:hover,
-  .login-button:focus {
-    background-color: hsl(var(--primary-hsl), .4);
-  }
-
   #email,
   #is-new{
-    width: 70%;
+    width: 100%;
   }
 
 
