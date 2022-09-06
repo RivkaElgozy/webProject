@@ -1,6 +1,6 @@
-const modal = document.getElementById(".modal");
-const trigger = document.getElementById(".trigger");
-// const closeButton = document.getElementById(".close-button");
+const modal = document.getElementById("modal");
+const trigger = document.getElementById("trigger");
+const closeButton = document.getElementById("close-button");
 
 function toggleModal() {
     modal.classList.toggle("show-modal");
@@ -9,11 +9,12 @@ function toggleModal() {
 function windowOnClick(event) {
     if (event.target === modal) {
         toggleModal();
+		// modal.classList.toggle("block-modal");
     }
 }
 
 trigger.addEventListener("click", toggleModal);
-// closeButton.addEventListener("click", toggleModal);
+closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
 
 
