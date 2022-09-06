@@ -39,11 +39,11 @@ let active = 1;
 for (let i = 0; i < 4; i++) {
   for(let j = 0; j < 2; j++) {
     // random ball starting speed (between 25 and 100 pps)
-    // xv = Math.floor(Math.random() * 76 + 25) / FPS;
-    // yv = Math.floor(Math.random() * 76 + 25) / FPS;
+    xv = Math.floor(Math.random() * 76 + 25) / FPS;
+    yv = Math.floor(Math.random() * 76 + 25) / FPS;
 
-    xv = Math.floor(Math.random() * 76 + 25) / 100;
-    yv = Math.floor(Math.random() * 76 + 25) / 100;
+    // xv = Math.floor(Math.random() * 76 + 25) / 100;
+    // yv = Math.floor(Math.random() * 76 + 25) / 100;
     
     // random ball direction
     if (Math.floor(Math.random() * 2) == 0) {
@@ -124,14 +124,22 @@ function gameLoop() {
       //   tiles[j].yv = -tiles[j].yv;
       // }
       if(!(tiles[i].x + tiles[i].size < tiles[j].x || tiles[i].x > tiles[j].x + tiles[j].size || tiles[i].y + tiles[i].size < tiles[j].y || tiles[i].y > tiles[j].y + tiles[j].size)){
-        if(!(tiles[i].x + tiles[i].size < tiles[j].x))
+        if(!(tiles[i].x + tiles[i].size < tiles[j].x)){
           tiles[j].xv = -tiles[j].xv;
-        if(!(tiles[i].x > tiles[j].x + tiles[j].size))
+          tiles[j].x += tiles[j].xv;
+        }
+        if(!(tiles[i].x > tiles[j].x + tiles[j].size)){
           tiles[i].xv = -tiles[i].xv;
-        if(!(tiles[i].y + tiles[i].size < tiles[j].y))
+          tiles[i].x += tiles[i].xv;
+        }
+        if(!(tiles[i].y + tiles[i].size < tiles[j].y)){
           tiles[j].yv = -tiles[j].yv;
-        if(!(tiles[i].y > tiles[j].y + tiles[j].size))
+          tiles[j].y += tiles[j].yv;
+        }
+        if(!(tiles[i].y > tiles[j].y + tiles[j].size)){
           tiles[i].yv = -tiles[i].yv;
+          tiles[i].y += tiles[i].yv;
+        }
       }       
     }
     tiles[i].x += tiles[i].xv;
