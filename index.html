@@ -30,26 +30,30 @@
         </nav>
 
         <div class="full-screen-container">
-            <div class="login-container">
-              <h1 class="login-title">Welcome</h1>
-              <form class="form">
-                <div class="input-group success">
-                  <label for="email">Email</label>
-                  <input type="email" name="email" id="email">
-                  <span class="msg">Valid email</span>
-                </div>        
-                <div class="input-group error">
-                  <label for="password">Password</label>
-                  <input type="password" name="password" id="password">
-                  <span class="msg">Incorrect password</span>
-                </div>        
-                <!-- <button type="submit" class="login-button">Login</button> -->
-                <nav>
-                  <a href ="game.html" class="login-button">Play</a>
-                </nav>
-              </form>
-            </div>
+          <div class="login-container">
+            <!-- <h1 class="login-title">Welcome</h1> -->
+            <form class="form">
+              <div class="input-group success">
+                <label >Name</label>
+                <input id="email">
+                <!-- <span class="msg">Valid email</span> -->
+              </div>        
+              <div class="input-group error">
+                <label for="password">Are you a new player?</label>
+                <select name="iSnew" id="is-new">
+                  <option value="" selected disabled hidden></option>
+                  <option class="option" value="1">yes</option>
+                  <option class="option" value="2">no</option>
+                </select>
+                <!-- <span class="msg">Incorrect password</span> -->
+              </div>        
+              <!-- <button type="submit" class="login-button">Login</button> -->
+              <nav>
+                <!-- <a href ="game.html" class="login-button">Play</a> -->
+              </nav>
+            </form>
           </div>
+        </div>
 
         <a href ="game.html" class="main-play-btn">Play</a>
     </section>
