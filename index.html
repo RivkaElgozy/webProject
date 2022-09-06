@@ -77,9 +77,19 @@
             </ul>
         </nav>   -->
         <nav class="navigation">
-            <a href="#" class="instructions">instructions</a>
-            <a href ="game.html" class="main-play-btn">Play</a> 
+            <a class="instructions" class="trigger">instructions</a>
+            <a href ="game.html" class="main-play-btn" style="pointer-events: none">Play</a> 
         </nav>
+
+        <!-- <button class="trigger">Click here to trigger the modal!</button> -->
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <!-- <span class="close-button">&times;</span> -->
+                <h1>Hello, I am a modal!</h1>
+            </div>
+        </div>
+
     </section>
+    <script type="module" src="js/homePage.js"></script>
 </body>
 </html>
