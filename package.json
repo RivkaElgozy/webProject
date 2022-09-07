@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "http-server": "^14.1.1"
+    "axios": "^0.27.2",
+    "http-server": "^14.1.1",
+    "require": "^2.4.20"
   }
 }

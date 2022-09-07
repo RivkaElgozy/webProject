@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Website HTML</title>
+    <link rel ="stylesheet" href="homeStyle.css" type="text/css">
+    <link rel = "shortcut icon" href = "images/unnamed.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- <script type="text/javascript" src="script.js"></script> -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+<body>
+    <div class = "bg-video">
+        <video autoplay muted loop>
+            <source src = "video6196970567778697806.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="welcome">
+        <ul class="fly-in-text hidden">
+            <li>W</li>
+            <li>E</li>
+            <li>L</li>
+            <li>C</li>
+            <li>O</li>
+            <li>M</li>
+            <li>E</li>
+        </ul>
+    </div>
+    <section id = "main" class = "main">
+        <div class="full-screen-container">
+          <div class="login-container">
+            <!-- <h1 class="login-title">Welcome</h1> -->
+            <form class="form">
+              <div class="input-group success" class="form-control reqrd">
+                <label >Name</label>
+                <input id="name">
+                <!-- <span class="msg">Valid email</span> -->
+              </div>        
+              <div class="input-group error">
+                <label for="password">Are you a new player?</label>
+                <select class="form-control reqrd" id="is-new">
+                  <option value="" selected disabled hidden></option>
+                  <option class="option" value="1">yes</option>
+                  <option class="option" value="2">no</option>
+                </select>
+                <!-- <span class="msg">Incorrect password</span> -->
+              </div>        
+
+              <div class="input-group error">
+                <label for="password">Select your level</label>
+                <select class="form-control reqrd" id="level">
+                  <option value="" selected disabled hidden></option>
+                  <option class="option" value="1">easy</option>
+                  <option class="option" value="2">medium</option>
+                  <option class="option" value="3">hard</option>
+                </select>
+                <!-- <span class="msg">Incorrect password</span> -->
+              </div>          
+              <!-- <button type="submit" class="login-button">Login</button> -->
+              <nav>
+                <!-- <a href ="game.html" class="login-button">Play</a> -->
+              </nav>
+            </form>
+          </div>
+        </div>
+
+        <!-- <nav class="navigation">
+            <ul id= "menu" class="menu">
+                <li><a href="#">instructions</a></li>
+                <li><a href ="game.html" class="main-play-btn">Play</a></li>
+            </ul>
+        </nav>   -->
+        <nav class="navigation">
+            <a class="instructions" class="trigger" id="trigger">instructions</a>
+            <a href ="game.html" class="main-play-btn" id="main-play-btn" onclick="return false;">Play</a> 
+        </nav>
+
+        <!-- <button class="trigger">Click here to trigger the modal!</button> -->
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <span class="close-button" id="close-button">&times;</span>
+                <h1>Instructions of the game:</h1>
+                <p>bvejhvbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                  nbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+                  hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+                  reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+                  eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+                </p>
+            </div>
+        </div>
+
+    </section>
+    <script type="module" src="js/homePage.js"></script>
+    <!-- <script type="module" src="js/userLogic.js"></script> -->
+</body>
+</html>
