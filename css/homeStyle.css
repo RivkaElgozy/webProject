@@ -45,6 +45,7 @@
 /* .menu li,  */
 .instructions,
 .main-play-btn{
+    cursor: pointer;
     position: relative;
 }
 /* .menu li a, */
@@ -188,13 +189,6 @@
     box-shadow: 0 0 0 1px hsl(var(--primary-hsl));
   }
   
-  #email,
-  #is-new{
-    width: 100%;
-  }
-
-
-
   .fly-in-text {
 	list-style: none;
 	position: absolute;

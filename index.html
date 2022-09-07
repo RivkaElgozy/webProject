@@ -38,14 +38,14 @@
           <div class="login-container">
             <!-- <h1 class="login-title">Welcome</h1> -->
             <form class="form">
-              <div class="input-group success">
+              <div class="input-group success" class="form-control reqrd">
                 <label >Name</label>
-                <input id="email">
+                <input id="name">
                 <!-- <span class="msg">Valid email</span> -->
               </div>        
               <div class="input-group error">
                 <label for="password">Are you a new player?</label>
-                <select name="iSnew" id="is-new">
+                <select class="form-control reqrd" id="is-new">
                   <option value="" selected disabled hidden></option>
                   <option class="option" value="1">yes</option>
                   <option class="option" value="2">no</option>
@@ -55,7 +55,7 @@
 
               <div class="input-group error">
                 <label for="password">Select your level</label>
-                <select name="iSnew" id="is-new">
+                <select class="form-control reqrd" id="level">
                   <option value="" selected disabled hidden></option>
                   <option class="option" value="1">easy</option>
                   <option class="option" value="2">medium</option>
@@ -79,7 +79,7 @@
         </nav>   -->
         <nav class="navigation">
             <a class="instructions" class="trigger" id="trigger">instructions</a>
-            <a href ="game.html" class="main-play-btn" style="pointer-events: none">Play</a> 
+            <a href ="game.html" class="main-play-btn" id="main-play-btn" onclick="return false;">Play</a> 
         </nav>
 
         <!-- <button class="trigger">Click here to trigger the modal!</button> -->
@@ -89,7 +89,7 @@
                 <h1>Instructions of the game:</h1>
                 <p>bvejhvbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
                   nbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-                  hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh]
+                  hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
                   reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
                   eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
                 </p>
