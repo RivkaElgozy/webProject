@@ -8,6 +8,7 @@ const level = document.getElementById("level");
 let userName= document.getElementById("name").value;
 let ifExistUser = document.getElementById("is-new");
 let flag = 0;
+// import axios from "axios";
 
 // setInterval(()=>{
 //     if(level.value != '' && isNew.value != '' && name1.value.length != 0){
@@ -64,7 +65,7 @@ async function check_if_exist(num){
             add_new_user_name(userName);
             var para = new URLSearchParams();
             para.append("userName", userName);
-            play.href = "theGame.html?" + para.toString();//קישור לדף המשחק
+            play.href = "game.html?" + para.toString();//קישור לדף המשחק
         
         }
         else{
@@ -113,3 +114,4 @@ window.addEventListener("click", windowOnClick);
 		$('.fly-in-text').removeClass('hidden');
 	},500);
 })();
+
