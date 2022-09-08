@@ -1,7 +1,11 @@
+var para = new URLSearchParams(window.location.search);
+var name = para.get("userName")
+var highScore = para.get("highScore");
+let level = para.get("level");
+
 const canvas = document.getElementById("canvas");
 var userName = document.getElementById("userName");
 const ctx = canvas.getContext("2d");
-let level = 8;
 // ctx.canvas.width  = window.innerWidth;
 // ctx.canvas.height = window.innerHeight;
 
@@ -11,7 +15,7 @@ import Tile from './Tile.js';
 var name2 = document.createTextNode("kjhgfd");
 userName.appendChild(name2)
 
-// helper functions
+// helper functions to shuffle an array
 function shuffle(array) {
   let currentIndex = array.length, temporaryValue, randomIndex;
   while (0 !== currentIndex) {
@@ -25,11 +29,10 @@ function shuffle(array) {
 }
 
 let tiles = [];
-// let colors = ["red", "yellow", "violet", "green", "pink", "orange", "purple", "brown", "magenta", "cyan", "red", "yellow", "violet", "green", "pink", "orange", "purple", "brown", "magenta", "cyan"];
-let colors = ["red", "red",  "yellow", "yellow", "violet", "violet", "green",  "green"]
-let shuffledColors = shuffle(colors.slice(0, level));
+let colors = ["red", "red",  "yellow", "yellow", "violet", "violet", "green",  "green"] // the optional colors
+let shuffledColors = shuffle(colors.slice(0, level)); // get sub array according to the level
 let flippedTiles = [];
-let clickedTile = 0;
+let clickedTile = 0; // counts the open cards
 let flag = 0, flagEND = 0;
 const FPS = 30;
 var bs = 30;
@@ -235,8 +238,10 @@ var ele = document.getElementById('mins');
       else
         if(min<10)
           ele.innerHTML = '0'+min+':'+sec;
-        else
+        else{
           ele.innerHTML = '10:00';
+          end()
+        }
           //go to game over
       if(sec === 60) {
         sec = 0;
