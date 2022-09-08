@@ -63,6 +63,7 @@ app.post('/api/update-new-user', (req, res) => {
 });
 
 app.post('/api/update-high-score', (req, res) => {
+    console.log(req);
     let j = 0;
     if(req.query.level==4){
         j=0;
@@ -75,7 +76,7 @@ app.post('/api/update-high-score', (req, res) => {
     }
     for(let i=0; i<items.length; i++){
         if(items[i].name == req.body.name){
-            items[i].highScores[j] = req.body.highScores[j];
+            items[i].highScores[j] = req.body.highScore;
             break;
         }
 

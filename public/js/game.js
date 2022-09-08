@@ -222,6 +222,7 @@ startClock();
 window.setTimeout(gameLoop, 5000);
 
 function end(){
+  // let res = await axios.post('/api/update-high-score', { params: { userName: userName, level: level, highScore: sec} });
   flagEND = 1;
 
   //fireworks
