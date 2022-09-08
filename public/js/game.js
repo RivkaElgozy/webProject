@@ -12,8 +12,9 @@ const ctx = canvas.getContext("2d");
 import Tile from './Tile.js';
 // import axios from 'axios';
 // import index from '../index.js';
-var name2 = document.createTextNode("kjhgfd");
-userName.appendChild(name2)
+var name2 = document.createTextNode("name: " + name + " highScore: " + highScore + " level: " + level);
+userName.appendChild(name2);
+
 
 // helper functions to shuffle an array
 function shuffle(array) {
@@ -40,9 +41,28 @@ var xv, yv;
 
 
 const progressBar = document.getElementById("progress-bar");
-const steps = document.querySelectorAll(".step");
+const progressNum = document.getElementById("progress-num");//ul
+
 let active = 1;
 
+if(level == 6){
+  const li = document.createElement("li");
+  li.appendChild(document.createTextNode("3"));
+  li.className="step";
+  progressNum.appendChild(li);
+}
+else if(level == 8){
+  const li = document.createElement("li");
+  li.appendChild(document.createTextNode("3"));
+  li.className="step";
+  progressNum.appendChild(li);
+
+  const li2 = document.createElement("li");
+  li2.appendChild(document.createTextNode("4"));
+  li2.className="step";
+  progressNum.appendChild(li2);
+}
+const steps = document.querySelectorAll(".step");
 const fireDiv = document.querySelector('.fireworksDiv');
 const fireworks = new Fireworks(fireDiv,{
   delay:{min:10, max:15},
@@ -213,43 +233,48 @@ function end(){
     });
   });
 }
+var ele = document.getElementById('mins');
+function gameOver(){
+  flagEND = 1;
+  ele.innerText="new game"
+}
 function startClock() {
   var timer;
-var ele = document.getElementById('mins');
-
-(function (){
-  var sec = 0;
-  var min = 0;
-  let flag = 0;
-  timer = setInterval(()=>{
-    if(flag === 0){
-      if(sec === 4){
-        flag = 1;
-        sec = 0;
-      }
-      ele.innerHTML = '00:00';
-    }
-    else{
-      if(sec < 10)
-        if(min < 10)
-          ele.innerHTML = '0'+min+':0'+sec;
-        else
-          ele.innerHTML = min+':0'+sec;
-      else
-        if(min<10)
-          ele.innerHTML = '0'+min+':'+sec;
-        else{
-          ele.innerHTML = '10:00';
-          end()
+  
+  (function (){
+    var sec = 0;
+    var min = 0;
+    let flag = 0;
+    timer = setInterval(()=>{
+      if(flag === 0){
+        if(sec === 4){
+          flag = 1;
+          sec = 0;
         }
-          //go to game over
-      if(sec === 60) {
-        sec = 0;
-        min++;
+        ele.innerHTML = '00:00';
       }
-    }
-    if(flagEND === 0)
-      sec++;
-  }, 1000) // each 1 second
-})() 
+      else{
+        if(sec < 10)
+          if(min < 10)
+            ele.innerHTML = '0'+min+':0'+sec;
+          else
+            ele.innerHTML = min+':0'+sec;
+        else
+          if(min<10)
+            ele.innerHTML = '0'+min+':'+sec;
+          else{
+            ele.innerHTML = '10:00';
+            // end();
+            gameOver();
+          }
+            //go to game over
+        if(sec === 60) {
+          sec = 0;
+          min++;
+        }
+      }
+      if(flagEND === 0)
+        sec++;
+    }, 1000) // each 1 second
+  })() 
 }

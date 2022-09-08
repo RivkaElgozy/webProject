@@ -40,9 +40,19 @@ app.get('/api/get-user-name', (req, res) => {
 
 app.use(express.json());
 app.get('/api/get-high-score', (req, res) => {
+    let j = 0;
+    if(req.query.level==4){
+        j=0;
+    }
+    else if(req.query.level==6){
+        j=1;
+    }
+    else {
+        j=2;
+    }
     for(let i=0; i<items.length; i++){
         if(items[i].name == req.query.userName){
-            res.send(""+items[i].highScore);
+            res.send(""+items[i].highScores[j]);
         }
     }
 });
@@ -50,15 +60,22 @@ app.get('/api/get-high-score', (req, res) => {
 app.use(express.json());
 app.post('/api/update-new-user', (req, res) => {
     items.push(req.body);
-    // console.log(items)
-    // console.log("len: "+ items.length);
-    // res.send("200 ok");
 });
 
 app.post('/api/update-high-score', (req, res) => {
+    let j = 0;
+    if(req.query.level==4){
+        j=0;
+    }
+    else if(req.query.level==6){
+        j=1;
+    }
+    else {
+        j=2;
+    }
     for(let i=0; i<items.length; i++){
         if(items[i].name == req.body.name){
-            items[i].highScore = req.body.highScore;
+            items[i].highScores[j] = req.body.highScores[j];
             break;
         }
 

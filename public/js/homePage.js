@@ -53,7 +53,7 @@ async function check_if_exist(num){
             alert("This name is already exist, please enter a different name");
         }
         else {
-            let res2 = await axios.get('/api/get-high-score', { params: { userName: userName } });
+            let res2 = await axios.get('/api/get-high-score', { params: { userName: userName, level:level.value} });
             var para = new URLSearchParams();
             para.append("userName", userName);
             para.append("highScore", res2.data);
@@ -64,7 +64,7 @@ async function check_if_exist(num){
     else{
         if(num == 1){
             add_new_user_name(userName);
-            let res3 = await axios.get('/api/get-high-score', { params: { userName: userName } });
+            let res3 = await axios.get('/api/get-high-score', { params: { userName: userName, level:level.value} });
             var para = new URLSearchParams();
             para.append("userName", userName);
             para.append("highScore", res3.data);
@@ -81,7 +81,9 @@ async function check_if_exist(num){
 async function add_new_user_name(userName){
     let obj = {
         name: userName,
-        highScore: 0
+        // highScore: 0,
+        highScores: [0,0,0]
+
     }
     await axios.post('/api/update-new-user', obj);
 }
