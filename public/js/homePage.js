@@ -5,7 +5,6 @@ const play = document.getElementById("main-play-btn");
 const isNew = document.getElementById("is-new"); 
 const name1 = document.getElementById("name");
 const level = document.getElementById("level");
-let userName= document.getElementById("name").value;
 let ifExistUser = document.getElementById("is-new");
 let flag = 0;
 // import axios from "axios";
@@ -48,27 +47,29 @@ play.onclick = function() {
 async function check_if_exist(num){
     let userName= document.getElementById("name").value;
     let res = await axios.get('/api/get-user-name', { params: { userName: userName } });
-    console.log(res.data)
+    console.log(res.data);
     if(res.data == "Exists"){
         if(num == 1){
             alert("This name is already exist, please enter a different name");
         }
         else {
-            let res2 = await axios.get('/api/get_high_score', { params: { userName: userName } });
+            let res2 = await axios.get('/api/get-high-score', { params: { userName: userName } });
             var para = new URLSearchParams();
             para.append("userName", userName);
             para.append("highScore", res2.data);
-            play.href = "game.html?" + para.toString();//קישור לדף המשחק
+            para.append("level", level.value);
+            location.href = "game.html?" + para.toString();//קישור לדף המשחק
         }   
     }
     else{
         if(num == 1){
             add_new_user_name(userName);
+            let res3 = await axios.get('/api/get-high-score', { params: { userName: userName } });
             var para = new URLSearchParams();
             para.append("userName", userName);
-            para.append("highScore", "0");
-            play.href = "game.html?" + para.toString();//קישור לדף המשחק
-        
+            para.append("highScore", res3.data);
+            para.append("level", level.value);
+            location.href = "game.html?" + para.toString();//קישור לדף המשחק
         }
         else{
             alert("oops.. This name does not exist");
@@ -76,13 +77,13 @@ async function check_if_exist(num){
     }
 }
 
-//----------an API call to add a new user to the server
+// ----------an API call to add a new user to the server
 async function add_new_user_name(userName){
     let obj = {
         name: userName,
         highScore: 0
     }
-    let res = await axios.post('/api/update-new-user', obj);
+    await axios.post('/api/update-new-user', obj);
 }
 
 //----------an API call to fet the high score of the user from the server

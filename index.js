@@ -37,11 +37,12 @@ app.get('/api/get-user-name', (req, res) => {
     }
     res.send("NotExists");
 });
+
 app.use(express.json());
 app.get('/api/get-high-score', (req, res) => {
     for(let i=0; i<items.length; i++){
         if(items[i].name == req.query.userName){
-        res.send(""+items[i].highScore);
+            res.send(""+items[i].highScore);
         }
     }
 });
@@ -49,7 +50,9 @@ app.get('/api/get-high-score', (req, res) => {
 app.use(express.json());
 app.post('/api/update-new-user', (req, res) => {
     items.push(req.body);
-    res.send("200 ok");
+    // console.log(items)
+    // console.log("len: "+ items.length);
+    // res.send("200 ok");
 });
 
 app.post('/api/update-high-score', (req, res) => {
