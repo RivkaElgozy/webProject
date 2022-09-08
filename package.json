@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.27.2",
+    "express": "^4.18.1",
     "http-server": "^14.1.1",
     "require": "^2.4.20"
   }

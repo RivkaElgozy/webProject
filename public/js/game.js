@@ -1,9 +1,14 @@
 const canvas = document.getElementById("canvas");
+var userName = document.getElementById("userName");
 const ctx = canvas.getContext("2d");
 // ctx.canvas.width  = window.innerWidth;
 // ctx.canvas.height = window.innerHeight;
 
 import Tile from './Tile.js';
+// import axios from 'axios';
+// import index from '../index.js';
+var name2 = document.createTextNode("kjhgfd");
+userName.appendChild(name2)
 
 // helper functions
 function shuffle(array) {

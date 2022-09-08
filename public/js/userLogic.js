@@ -1,19 +1,26 @@
+console.log("jhygtfdsartgyhujikl");
 let userName= document.getElementById("name").value;
+const isNew = document.getElementById("is-new"); 
+const name1 = document.getElementById("name");
+const level = document.getElementById("level");
+let ifExistUser = document.getElementById("is-new");
 // const axios = require('axios').default;
 
 document.getElementById("main-play-btn").onclick = function () {
-
-    // userName= document.getElementById("userName").value;
-    let ifExistUser = document.getElementById("is-new");
-    if(ifExistUser.value == "No"){
-        console.log("No")
-        check_if_exist(userName, 0);
-    }
-    else{
-        console.log("Yes")
-
-        check_if_exist( 1);
-    }
+    // if(level.value != '' && isNew.value != '' && name1.value != '' && name1.value != null){
+    //     alert("נא מלא את כל השדות");
+    // }
+    // else{
+    // // userName= document.getElementById("userName").value;
+    //     if(ifExistUser.value == "No"){
+    //         console.log("No");
+    //         check_if_exist(0);
+    //     }
+    //     else{
+    //         console.log("Yes");
+    //         check_if_exist(1);
+    //     }
+    // }
 }
 
 //--------an API call to check if the user name exists or not
@@ -30,7 +37,6 @@ async function check_if_exist(num){
             var para = new URLSearchParams();
             para.append("userName", userName);
             location.href = "game.html?" + para.toString();//קישור לדף המשחק
-        
         }   
     }
     else{

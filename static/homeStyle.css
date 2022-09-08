@@ -45,6 +45,7 @@
 /* .menu li,  */
 .instructions,
 .main-play-btn{
+  cursor: pointer;
     position: relative;
 }
 /* .menu li a, */
