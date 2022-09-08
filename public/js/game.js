@@ -1,3 +1,8 @@
+var para = new URLSearchParams(window.location.search);
+var name = para.get("userName")
+var highScore = para.get("highScore");
+let level = para.get("level");
+
 const canvas = document.getElementById("canvas");
 var userName = document.getElementById("userName");
 const ctx = canvas.getContext("2d");
@@ -10,7 +15,7 @@ import Tile from './Tile.js';
 var name2 = document.createTextNode("kjhgfd");
 userName.appendChild(name2)
 
-// helper functions
+// helper functions to shuffle an array
 function shuffle(array) {
   let currentIndex = array.length, temporaryValue, randomIndex;
   while (0 !== currentIndex) {
@@ -24,11 +29,10 @@ function shuffle(array) {
 }
 
 let tiles = [];
-// let colors = ["red", "yellow", "violet", "green", "pink", "orange", "purple", "brown", "magenta", "cyan", "red", "yellow", "violet", "green", "pink", "orange", "purple", "brown", "magenta", "cyan"];
-let colors = ["red", "yellow", "violet", "green","red", "yellow", "violet", "green"]
-let shuffledColors = shuffle(colors);
+let colors = ["red", "red",  "yellow", "yellow", "violet", "violet", "green",  "green"] // the optional colors
+let shuffledColors = shuffle(colors.slice(0, level)); // get sub array according to the level
 let flippedTiles = [];
-let clickedTile = 0;
+let clickedTile = 0; // counts the open cards
 let flag = 0, flagEND = 0;
 const FPS = 30;
 var bs = 30;
@@ -54,7 +58,7 @@ const fireworks = new Fireworks(fireDiv,{
 
 
 // create tiles
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < level/2; i++) {
   for(let j = 0; j < 2; j++) {
     // random ball starting speed (between 25 and 100 pps)
     xv = Math.floor(Math.random() * 76 + 25) / FPS;
@@ -234,8 +238,10 @@ var ele = document.getElementById('mins');
       else
         if(min<10)
           ele.innerHTML = '0'+min+':'+sec;
-        else
+        else{
           ele.innerHTML = '10:00';
+          end()
+        }
           //go to game over
       if(sec === 60) {
         sec = 0;
