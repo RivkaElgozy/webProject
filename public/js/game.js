@@ -1,6 +1,7 @@
 const canvas = document.getElementById("canvas");
 var userName = document.getElementById("userName");
 const ctx = canvas.getContext("2d");
+let level = 8;
 // ctx.canvas.width  = window.innerWidth;
 // ctx.canvas.height = window.innerHeight;
 
@@ -25,8 +26,8 @@ function shuffle(array) {
 
 let tiles = [];
 // let colors = ["red", "yellow", "violet", "green", "pink", "orange", "purple", "brown", "magenta", "cyan", "red", "yellow", "violet", "green", "pink", "orange", "purple", "brown", "magenta", "cyan"];
-let colors = ["red", "yellow", "violet", "green","red", "yellow", "violet", "green"]
-let shuffledColors = shuffle(colors);
+let colors = ["red", "red",  "yellow", "yellow", "violet", "violet", "green",  "green"]
+let shuffledColors = shuffle(colors.slice(0, level));
 let flippedTiles = [];
 let clickedTile = 0;
 let flag = 0, flagEND = 0;
@@ -54,7 +55,7 @@ const fireworks = new Fireworks(fireDiv,{
 
 
 // create tiles
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < level/2; i++) {
   for(let j = 0; j < 2; j++) {
     // random ball starting speed (between 25 and 100 pps)
     xv = Math.floor(Math.random() * 76 + 25) / FPS;
