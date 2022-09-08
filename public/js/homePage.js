@@ -82,7 +82,7 @@ async function add_new_user_name(userName){
     let obj = {
         name: userName,
         // highScore: 0,
-        highScores: [0,0,0]
+        highScores: [60,60,60]
 
     }
     await axios.post('/api/update-new-user', obj);

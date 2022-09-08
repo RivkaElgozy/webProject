@@ -63,23 +63,21 @@ app.post('/api/update-new-user', (req, res) => {
 });
 
 app.post('/api/update-high-score', (req, res) => {
-    console.log(req);
     let j = 0;
-    if(req.query.level==4){
+    if(req.body.level==4){
         j=0;
     }
-    else if(req.query.level==6){
+    else if(req.body.level==6){
         j=1;
     }
     else {
         j=2;
     }
     for(let i=0; i<items.length; i++){
-        if(items[i].name == req.body.name){
+        if(items[i].name == req.body.userName && items[i].highScores[j] > req.body.highScore){
             items[i].highScores[j] = req.body.highScore;
             break;
         }
-
     }
     res.send("200 ok");
 });

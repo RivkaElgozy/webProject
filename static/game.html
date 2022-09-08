@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
     <link rel="stylesheet" href="style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="script.js"></script> -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel = "shortcut icon" href = "unnamed.png">
     <title>Game Website HTML</title>
     <body style="background-image: url('background.jpeg');">
@@ -14,21 +18,23 @@
                 <li class="step">1</li>
                 <li class="step">2</li>
                 <!-- <li class="step">3</li>
-                <li class="step">4</li> -->
-              </ul>
+                  <li class="step">4</li> -->
+                </ul>
+              </div>
             </div>
-          </div>
+            <p id="userName"></p>
           <canvas id="canvas" width="1250" height="500"></canvas>
           <div class="wrapper">
+            <a href="./index.html" id="new-game" class="new-game" style="display: none;">New Game</a>
             <p>
               <span class="mins" id ="mins">00:00</span>
             </p> <br>
           </div>
         </div>
         <div class="fireworksDiv"></div>
-        <p id="userName"></p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/fireworks-js@latest/dist/fireworks.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="module" src="js/game.js"></script>
    </body>
   </html>

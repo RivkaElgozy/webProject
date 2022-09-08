@@ -72,9 +72,9 @@ body {
 }
 .wrapper{
     position: absolute;
-    top: 90%;
+    top: 85%;
     left: 50%;
-    height: 0px;
+    height: 20px;
     transform: translate(-50%,-50%);
 }
 .wrapper p{
@@ -144,4 +144,60 @@ body {
   /* top:30px;
   left:30px; */
   color: white;
+  margin-left: 7%;
+  margin-top: 2px;
+  font-family: 'poppins';
+  /* font-weight: 300; */
+  /* font-size: 4em; */
+}
+
+.instructions,
+.main-play-btn{
+  cursor: pointer;
+    position: relative;
+}
+/* .menu li a, */
+.new-game{
+    display: block;
+    position: absolute;
+    top: 75px;
+    /* right: 0.1px; */
+    /* left: 0.1px; */
+    text-decoration: none;
+    margin: 0px 20px, 50px, 50px;
+    color: #ffffff;
+    background: linear-gradient(97deg, rgb(50, 59, 150)0%, rgb(22, 11, 107)100%);
+    width: 67px;
+    /* padding: 7px 13px 7px 13; */
+    padding: 7px 0px 0px 17%;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    border-radius: 14px;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.13);
+    box-shadow: rgb(16, 53, 101) -0px 0.5px,
+    rgb(13, 42, 90) -0px 1px, rgb(13, 42, 90) -0px 1.5px,
+    rgb(13, 42, 90) -0px 2px, rgb(13, 42, 90) -0px 2.5px,
+    rgb(13, 42, 90) -0px 3px, rgb(13, 42, 90) -0px 3.5px,
+    rgb(13, 42, 90) -0px 4px, rgb(13, 42, 90) -0px 4.5px,
+    rgb(13, 42, 90) -0px 5px, rgb(13, 42, 90) -0px 5.5px;
+    transform: translate3d(8px,-8px,0);
+}
+
+.new-game:hover {
+    background: linear-gradient(97deg, rgb(254, 171, 37) 0%, rgba(255, 156, 1, 1) 100%);
+    box-shadow: #e38400 -0px 0.5px, #e38400 -0px 1px, 
+    #e38400 -0px 1.5px, #e38400 -0px 2px ,
+    #e38400 -0px 2.5px, #e38400 -0px 3px ,
+    #e38400 -0px 3.5px, #e38400 -0px 4px ,
+    #e38400 -0px 4.5px, #e38400 -0px 5px ,
+    #e38400 -0px 5.5px;
+}
+
+.new-game::before{
+    padding: 12px 0px 7px 120px;
+    left: 5px;
+    top: 0px;
 }

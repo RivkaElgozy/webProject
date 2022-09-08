@@ -2,9 +2,11 @@ var para = new URLSearchParams(window.location.search);
 var name = para.get("userName")
 var highScore = para.get("highScore");
 let level = para.get("level");
+var sec = 0;
 
 const canvas = document.getElementById("canvas");
 var userName = document.getElementById("userName");
+var newGame = document.getElementById("new-game");
 const ctx = canvas.getContext("2d");
 // ctx.canvas.width  = window.innerWidth;
 // ctx.canvas.height = window.innerHeight;
@@ -12,7 +14,12 @@ const ctx = canvas.getContext("2d");
 import Tile from './Tile.js';
 // import axios from 'axios';
 // import index from '../index.js';
-var name2 = document.createTextNode("name: " + name + " highScore: " + highScore + " level: " + level);
+if(level === "4")
+  var name2 = document.createTextNode(`name: ${name} highScore: ${highScore}sec level: easy`);
+else if(level === "6")
+  var name2 = document.createTextNode(`name: ${name} highScore: ${highScore}sec level: medium`);
+else
+  var name2 = document.createTextNode(`name: ${name} highScore: ${highScore}sec level: hard`);
 userName.appendChild(name2);
 
 
@@ -94,7 +101,15 @@ for (let i = 0; i < level/2; i++) {
     if (Math.floor(Math.random() * 2) == 0) {
         yv = -yv;
     }
-    tiles.push(new Tile(i * 300 +130,xv, j * 300 + 40,yv, shuffledColors.pop()));
+    if(level === "4"){
+      tiles.push(new Tile(i * 300 +435,xv, j * 200 + 40,yv, shuffledColors.pop()));
+    }
+    else if(level === "6"){
+      tiles.push(new Tile(i * 300 +290,xv, j * 200 + 40,yv, shuffledColors.pop()));
+    }
+    else{
+      tiles.push(new Tile(i * 300 +130,xv, j * 200 + 40,yv, shuffledColors.pop()));
+    }
   }
 }
 
@@ -221,30 +236,34 @@ draw();
 startClock();
 window.setTimeout(gameLoop, 5000);
 
-function end(){
-  // let res = await axios.post('/api/update-high-score', { params: { userName: userName, level: level, highScore: sec} });
-  flagEND = 1;
-
-  //fireworks
-  fireworks.start();
-  var context = new AudioContext();
-  document.addEventListener('click', () => {
-    context.resume().then(() => {
-      console.log('Playback resumed successfully');
+ async function end(){
+   flagEND = 1;
+   
+   //fireworks
+   fireworks.start();
+   var context = new AudioContext();
+   document.addEventListener('click', () => {
+     context.resume().then(() => {
+       console.log('Playback resumed successfully');
+      });
     });
-  });
+    let res = await axios.post('/api/update-high-score', { userName: name, level: level, highScore: sec} );
+    newGame.style.display = "";
 }
 var ele = document.getElementById('mins');
 function gameOver(){
   flagEND = 1;
-  ele.innerText="new game"
+  for (let i = 0; i < tiles.length; i++) {
+    tiles[i].revealed = true;
+  }
+  draw();
+  newGame.style.display = "";
+  // ele.innerText="new game"
 }
 function startClock() {
   var timer;
   
   (function (){
-    var sec = 0;
-    var min = 0;
     let flag = 0;
     timer = setInterval(()=>{
       if(flag === 0){
@@ -256,22 +275,14 @@ function startClock() {
       }
       else{
         if(sec < 10)
-          if(min < 10)
-            ele.innerHTML = '0'+min+':0'+sec;
-          else
-            ele.innerHTML = min+':0'+sec;
+            ele.innerHTML = '00:0'+sec;
         else
-          if(min<10)
-            ele.innerHTML = '0'+min+':'+sec;
-          else{
-            ele.innerHTML = '10:00';
-            // end();
-            gameOver();
-          }
+            ele.innerHTML = '00:'+sec;
             //go to game over
         if(sec === 60) {
-          sec = 0;
-          min++;
+          ele.innerHTML = '01:00';
+            // end();
+            gameOver();
         }
       }
       if(flagEND === 0)
