@@ -201,3 +201,13 @@ body {
     left: 5px;
     top: 0px;
 }
+
+.game-over{
+  display: block;
+  position: absolute;
+  top: 40%;
+  left: 38%;
+  font-size: 3rem;
+  font-family: 'poppins';
+  
+}

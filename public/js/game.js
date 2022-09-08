@@ -7,6 +7,7 @@ var sec = 0;
 const canvas = document.getElementById("canvas");
 var userName = document.getElementById("userName");
 var newGame = document.getElementById("new-game");
+var gameOver2 = document.getElementById("game-over");
 const ctx = canvas.getContext("2d");
 // ctx.canvas.width  = window.innerWidth;
 // ctx.canvas.height = window.innerHeight;
@@ -258,7 +259,7 @@ function gameOver(){
   }
   draw();
   newGame.style.display = "";
-  // ele.innerText="new game"
+  gameOver2.style.display = "";
 }
 function startClock() {
   var timer;
