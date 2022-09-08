@@ -54,9 +54,10 @@ async function check_if_exist(num){
             alert("This name is already exist, please enter a different name");
         }
         else {
-            get_high_score(userName);
+            let res2 = await axios.get('/api/get_high_score', { params: { userName: userName } });
             var para = new URLSearchParams();
             para.append("userName", userName);
+            para.append("highScore", res2.data);
             play.href = "game.html?" + para.toString();//קישור לדף המשחק
         }   
     }
@@ -65,6 +66,7 @@ async function check_if_exist(num){
             add_new_user_name(userName);
             var para = new URLSearchParams();
             para.append("userName", userName);
+            para.append("highScore", "0");
             play.href = "game.html?" + para.toString();//קישור לדף המשחק
         
         }
@@ -84,10 +86,10 @@ async function add_new_user_name(userName){
 }
 
 //----------an API call to fet the high score of the user from the server
-async function get_high_score(userName){
-    let res = await axios.get('/api/get-high-score', { params: { userName: userName }});
-    alert("השיא שצברת עד כה הוא: " + res.data +" נקודות");
-}
+// async function get_high_score(userName){
+//     let res = await axios.get('/api/get-high-score', { params: { userName: userName }});
+//     alert("השיא שצברת עד כה הוא: " + res.data +" נקודות");
+// }
 
 function toggleModal() { 
     modal.classList.toggle("show-modal"); 
